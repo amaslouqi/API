@@ -133,17 +133,7 @@
           }
         }
       },
-      "parameters": [],
-      "post": {
-        "summary": "",
-        "operationId": "post-A2A.eWalletAPI-api-base-A2AProcess",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        },
-        "description": ""
-      }
+      "parameters": []
     },
     "/Change Password": {
       "get": {
