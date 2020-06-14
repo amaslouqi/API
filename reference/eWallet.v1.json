@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://a2a-dev.access2arabia.com"
+      "url": "https://jomopsp.madfooat.com"
     }
   ],
   "paths": {
@@ -17,7 +17,65 @@
         "tags": [],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Created",
+            "headers": {
+              "SrvID": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Service ID",
+                "required": true
+              },
+              "GuidID": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "The same GUID received in the request",
+                "required": true
+              },
+              "TimeStamp": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Date ",
+                "required": true
+              },
+              "Result": {
+                "schema": {}
+              },
+              "ErrorCode": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Error Code",
+                "required": true
+              },
+              "EDesc": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Description in English",
+                "required": true
+              },
+              "ADesc": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Description in Arabic",
+                "required": true
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "{     \"A2AResponse\": {         \"Header\": {             \"SrvID\": 0,             \"GuidID\": \"00000000-0000-0000-0000-000000000000\",             \"TimeStamp\": \"2020-06-11T12:07:54.3094192+03:00\",             \"Result\": {                 \"ErrorCode\": 999,                 \"EDesc\": \"Password must contain at least one upper case letter., Password must contain at least one special character,Minimum allowed password length is 6,Password must contain at least one lower case letter..\",                 \"ADesc\": \"يجب أن تحتوي كلمة المرور على حرف واحد كبير على الأقل., يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل, الحد الأدنى المسموح به لطول كلمة المرور هو 6,يجب أن تحتوي كلمة المرور على حرف واحد صغير على الأقل..\"             },             \"SessionID\": null,             \"ReferanceNumber\": null         },         \"Body\": {},         \"Footer\": {             \"Signature\": \"\"         }     },     \"ErrorMsg\": {         \"ErrorCode\": 999,         \"EDesc\": \"Password must contain at least one upper case letter., Password must contain at least one special character,Minimum allowed password length is 6,Password must contain at least one lower case letter..\",         \"ADesc\": \"يجب أن تحتوي كلمة المرور على حرف واحد كبير على الأقل., يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل, الحد الأدنى المسموح به لطول كلمة المرور هو 6,يجب أن تحتوي كلمة المرور على حرف واحد صغير على الأقل..\"     } }": {}
+                }
+              }
+            }
           },
           "202": {
             "description": "Accepted"
@@ -132,34 +190,10 @@
               }
             }
           }
-        }
+        },
+        "description": "Change account password"
       },
       "parameters": []
-    },
-    "/Change Password": {
-      "get": {
-        "parameters": [
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "header"
-          }
-        ],
-        "description": ""
-      }
     }
   },
   "components": {
