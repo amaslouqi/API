@@ -1,0 +1,535 @@
+{
+	"info": {
+		"_postman_id": "6098f921-0d0f-46f9-a86f-9dc52f71fab0",
+		"name": "e-wallet Mafdo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Request Cashout information",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"A2ARequest\": {\n        \"Header\": {\n            \"SrvID\": \"GetReqCashout\",\n            \"Channel\": \"Teller\"\n        },\n        \"Body\": {\n            \"CustProfile\": {\n                \"MobNoSender\": \"962786926569\"\n            },\n            \"Security\": {\n                \"PIN\": \"005870\"\n            }\n        },\n        \"Footer\": {\n            \"Signature\": \"\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/A2A.eWallet.API/api/base/A2AProcess",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"A2A.eWallet.API",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Request Cashout information",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"A2ARequest\": {\n        \"Header\": {\n            \"SrvID\": \"GetReqCashout\",\n            \"Channel\": \"Teller\"\n        },\n        \"Body\": {\n            \"CustProfile\": {\n                \"MobNoSender\": \"962786926569\"\n            },\n            \"Security\": {\n                \"PIN\": \"005870\"\n            }\n        },\n        \"Footer\": {\n            \"Signature\": \"\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/A2A.eWallet.API/api/base/A2AProcess",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"A2A.eWallet.API",
+								"api",
+								"base",
+								"A2AProcess"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Apr 2020 01:39:13 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"A2AResponse\": {\n        \"Header\": {\n            \"SrvID\": 0,\n            \"GuidID\": \"00000000-0000-0000-0000-000000000000\",\n            \"TimeStamp\": \"2020-04-30T04:39:13.8182852+03:00\",\n            \"Result\": {\n                \"ErrorCode\": 0,\n                \"EDesc\": \"Operation has been completed successfully\",\n                \"ADesc\": \"تمت العملية بنجاح\"\n            },\n            \"SessionID\": null,\n            \"ReferanceNumber\": null\n        },\n        \"Body\": {\n            \"FlagSender\": \"1\",\n            \"CustProfile\": {\n                \"RJOType\": \"M\",\n                \"RJOID\": \"962780136069\",\n                \"ReciverType\": \"550\",\n                \"MobNoSender\": \"962786926569\",\n                \"Alias\": \"\"\n            },\n            \"EntityProfile\": {\n                \"EntityID\": 2178,\n                \"MobNoreceiver\": \"962786926500\"\n            },\n            \"Transaction\": {\n                \"IncludeFee\": 1\n            },\n            \"Info\": {\n                \"FullName\": \"Mohammad Alkhateeb \",\n                \"Amount\": \"2.000\",\n                \"FeeAmount\": \"0\",\n                \"TotalAmount\": \"2.000\",\n                \"CorporateName\": \"MHM\",\n                \"DateNow\": \"4/30/2020\",\n                \"TimeNow\": \"4:39 AM\"\n            },\n            \"Security\": {\n                \"PIN\": \"005870\"\n            }\n        },\n        \"Footer\": {\n            \"Signature\": \"\"\n        }\n    },\n    \"ErrorMsg\": {\n        \"ErrorCode\": 0,\n        \"EDesc\": \"Operation has been completed successfully\",\n        \"ADesc\": \"تمت العملية بنجاح\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "CashOut",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"A2ARequest\": {\n        \"Header\": {\n            \"SrvID\": \"CashOut\",\n            \"Channel\": \"Teller\"\n        },\n        \"Body\": {\n            \"FlagSender\": \"1\",\n            \"CustProfile\": {\n                \"RJOType\": \"M\",\n                \"RJOID\": \"962780136069\",\n                \"ReciverType\": \"550\",\n                \"MobNoSender\": \"962786926569\",\n                \"Alias\": \"\"\n            },\n            \"EntityProfile\": {\n                \"EntityID\": 2178,\n                \"MobNoreceiver\": \"962786926500\"\n            },\n            \"Transaction\": {\n                \"IncludeFee\": 1\n            },\n            \"Info\": {\n                \"FullName\": \"Mohammad Alkhateeb \",\n                \"Amount\": \"2.000\",\n                \"FeeAmount\": \"0\",\n                \"TotalAmount\": \"2.000\",\n                \"CorporateName\": \"MHM\",\n                \"DateNow\": \"4/30/2020\",\n                \"TimeNow\": \"4:39 AM\"\n            },\n            \"Security\": {\n                \"PIN\": \"005870\"\n            }\n        },\n        \"Footer\": {\n            \"Signature\": \"\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/A2A.eWallet.API/api/base/A2AProcess",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"A2A.eWallet.API",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CashOut",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"A2ARequest\": {\n        \"Header\": {\n            \"SrvID\": \"CashOut\",\n            \"Channel\": \"Teller\"\n        },\n        \"Body\": {\n            \"FlagSender\": \"1\",\n            \"CustProfile\": {\n                \"RJOType\": \"M\",\n                \"RJOID\": \"962780136069\",\n                \"ReciverType\": \"550\",\n                \"MobNoSender\": \"962786926569\",\n                \"Alias\": \"\"\n            },\n            \"EntityProfile\": {\n                \"EntityID\": 2178,\n                \"MobNoreceiver\": \"962786926500\"\n            },\n            \"Transaction\": {\n                \"IncludeFee\": 1\n            },\n            \"Info\": {\n                \"FullName\": \"Mohammad Alkhateeb \",\n                \"Amount\": \"2.000\",\n                \"FeeAmount\": \"0\",\n                \"TotalAmount\": \"2.000\",\n                \"CorporateName\": \"MHM\",\n                \"DateNow\": \"4/30/2020\",\n                \"TimeNow\": \"4:39 AM\"\n            },\n            \"Security\": {\n                \"PIN\": \"005870\"\n            }\n        },\n        \"Footer\": {\n            \"Signature\": \"\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/A2A.eWallet.API/api/base/A2AProcess",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"A2A.eWallet.API",
+								"api",
+								"base",
+								"A2AProcess"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 30 Apr 2020 01:41:41 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"A2AResponse\": {\n        \"Header\": {\n            \"SrvID\": 0,\n            \"GuidID\": \"00000000-0000-0000-0000-000000000000\",\n            \"TimeStamp\": \"2020-04-30T04:41:41.0292393+03:00\",\n            \"Result\": {\n                \"ErrorCode\": 0,\n                \"EDesc\": \"Operation has been completed successfully\",\n                \"ADesc\": \"تمت العملية بنجاح\"\n            },\n            \"SessionID\": null,\n            \"ReferanceNumber\": null\n        },\n        \"Body\": {\n            \"Amount\": 2,\n            \"Fees\": 2,\n            \"TotalAmount\": 4\n        },\n        \"Footer\": {\n            \"Signature\": \"\"\n        }\n    },\n    \"ErrorMsg\": {\n        \"ErrorCode\": 0,\n        \"EDesc\": \"Operation has been completed successfully\",\n        \"ADesc\": \"تمت العملية بنجاح\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Validate Cash Out",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a2ARequest\": {\n        \"header\": {\n            \"channel\": \"IBK\",\n            \"srvID\": \"ValidateCashOut\"\n        },\n        \"body\": {\n            \"CustProfile\": {\n                \"MobNoSender\": \"962791303589\",\n                \"Alias\": \"\"\n            },\n            \"Transaction\": {\n                \"IncludeFee\": \"1\",\n                \"Amount\": 5\n            },\n            \"FlagSender\": \"1\"\n        },\n        \"footer\": {\n            \"signature\": null\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jomopsp.madfooat.com/A2A.eWlletAPI/api/base/A2AProcess",
+					"protocol": "https",
+					"host": [
+						"jomopsp",
+						"madfooat",
+						"com"
+					],
+					"path": [
+						"A2A.eWlletAPI",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirmation Cashout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a2ARequest\": {\n        \"header\": {\n            \"connectorID\": \"MO\",\n            \"UserID\": \"IBKUser\",\n            \"Password\": \"123\",\n            \"channel\": \"IBK\",\n            \"BankCode\": \"A2A\",\n            \"DeviceID\" : \"Andorid\",\n            \"srvID\": \"ConfirmValidateCashOut\"\n        },\n        \"body\": {\n            \"CustProfile\": {\n                \"SenderID\": \"1375\",\n                \"Confirm\": 1\n            }\n        },\n        \"footer\": {\n            \"signature\": null\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jomopsp.madfooat.com/A2A.eWlletAPI/api/base/A2AProcess",
+					"protocol": "https",
+					"host": [
+						"jomopsp",
+						"madfooat",
+						"com"
+					],
+					"path": [
+						"A2A.eWlletAPI",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Notification ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a2ARequest\": {\n        \"header\": {\n            \"connectorID\": \"MO\",\n            \"UserID\": \"IBKUser\",\n            \"Password\": \"123\",\n            \"channel\": \"IBK\",\n            \"BankCode\": \"A2A\",\n            \"srvID\": \"UpdateNotification\"\n        },\n        \"body\": {\n            \"Notification\": {\n            \t\"SenderID\":\"1108\",\n            \t\"MsgId\" : \"72\",\n            \t\"isRead\" : \"true\"\n            }\n        },\n        \"footer\": {\n            \"signature\": null\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jomopsp.madfooat.com/A2A.eWlletAPI/api/base/A2AProcess",
+					"protocol": "https",
+					"host": [
+						"jomopsp",
+						"madfooat",
+						"com"
+					],
+					"path": [
+						"A2A.eWlletAPI",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Allow Notification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a2ARequest\": {\n        \"header\": {\n            \"connectorID\": \"MO\",\n            \"UserID\": \"IBKUser\",\n            \"Password\": \"123\",\n            \"channel\": \"IBK\",\n            \"BankCode\": \"A2A\",\n            \"srvID\": \"AllowNotification\"\n        },\n        \"body\": {\n            \"Notification\": {\n                \"CustID\": 1108,\n                \"Token\" : \"cHjsn7YETSiAhnBYp3Dp20:APA91bFpAn24uRC2ZP0mWyfi5_l5QOLC23KTuRMil9YPhcL0ep72eFpkLcPiLC4yS6JIj1U7p37Sagk0mDKfLb9F3CofWNHTv5IG7t146RIYZavcM3N_iSekIJxgY6BNiOfoQ8I-H4Ur\",\n                \"IsAllow\" : \"false\"\n            }\n        },\n        \"footer\": {\n            \"signature\": null\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jomopsp.madfooat.com/A2A.eWlletAPI/api/base/A2AProcess",
+					"protocol": "https",
+					"host": [
+						"jomopsp",
+						"madfooat",
+						"com"
+					],
+					"path": [
+						"A2A.eWlletAPI",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Notification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a2ARequest\": {\n        \"header\": {\n            \"connectorID\": \"MO\",\n            \"UserID\": \"IBKUser\",\n            \"Password\": \"123\",\n            \"channel\": \"IBK\",\n            \"BankCode\": \"A2A\",\n            \"DeviceID\" : \"Andorid\",\n            \"srvID\": \"GetNotification\"\n        },\n        \"body\": {\n            \"Notification\": {\n                \"CustID\": \"1108\"\n            }\n        },\n        \"footer\": {\n            \"signature\": null\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/A2A.eWallet.API/api/base/A2AProcess",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"A2A.eWallet.API",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout Session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a2ARequest\": {\n        \"header\": {\n            \"connectorID\": \"MO\",\n            \"UserID\": \"IBKUser\",\n            \"Password\": \"123\",\n            \"channel\": \"IBK\",\n            \"SessionID\":\"8888888888888888\",\n            \"BankCode\": \"A2A\",\n            \"DeviceID\" : \"Andorid\",\n            \"srvID\": \"LogoutSession\"\n        },\n        \"body\": {\n            \"CustProfile\": {\n                \"SubID\": 1392\n            }\n        },\n        \"footer\": {\n            \"signature\": null\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jomopsp.madfooat.com/A2A.eWlletAPI/api/base/A2AProcess",
+					"protocol": "https",
+					"host": [
+						"jomopsp",
+						"madfooat",
+						"com"
+					],
+					"path": [
+						"A2A.eWlletAPI",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Logout Session",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"a2ARequest\": {\n        \"header\": {\n            \"connectorID\": \"MO\",\n            \"UserID\": \"IBKUser\",\n            \"Password\": \"123\",\n            \"channel\": \"IBK\",\n            \"SessionID\":\"654987654646847987\",\n            \"BankCode\": \"A2A\",\n            \"srvID\": \"LogoutSession\"\n        },\n        \"body\": {\n            \"CustProfile\": {\n                \"SubID\": 17\n            }\n        },\n        \"footer\": {\n            \"signature\": null\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/A2A.eWallet.API/api/base/A2AProcess",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"A2A.eWallet.API",
+								"api",
+								"base",
+								"A2AProcess"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Apr 2020 14:57:43 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"A2AResponse\": {\n        \"Header\": {\n            \"SrvID\": 0,\n            \"GuidID\": \"00000000-0000-0000-0000-000000000000\",\n            \"TimeStamp\": \"2020-04-18T17:57:44.2164218+03:00\",\n            \"Result\": {\n                \"ErrorCode\": 0,\n                \"EDesc\": \"Operation has been completed successfully\",\n                \"ADesc\": \"تمت العملية بنجاح\"\n            },\n            \"SessionID\": null,\n            \"ReferanceNumber\": null\n        },\n        \"Body\": {},\n        \"Footer\": {\n            \"Signature\": \"\"\n        }\n    },\n    \"ErrorMsg\": {\n        \"ErrorCode\": 0,\n        \"EDesc\": \"Operation has been completed successfully\",\n        \"ADesc\": \"تمت العملية بنجاح\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Limits",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a2ARequest\": {\n        \"header\": {\n            \"connectorID\": \"MO\",\n            \"UserID\": \"IBKUser\",\n            \"Password\": \"123\",\n            \"channel\": \"IBK\",\n            \"BankCode\": \"A2A\",\n            \"srvID\": \"GetLimit\"\n        },\n        \"body\": {\n            \"ReqSrv\": \"P2P\"\n        },\n        \"footer\": {\n            \"signature\": null\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jomopsp.madfooat.com/A2A.eWlletAPI/api/base/A2AProcess",
+					"protocol": "https",
+					"host": [
+						"jomopsp",
+						"madfooat",
+						"com"
+					],
+					"path": [
+						"A2A.eWlletAPI",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Allow Notification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"a2ARequest\": {\n        \"header\": {\n            \"channel\": \"IBK\",\n            \"srvID\": \"CheckAllowNotification\"\n        },\n        \"body\": {\n            \"Notification\": {\n                \"SenderID\": \"492\"\n            }\n        },\n        \"footer\": {\n            \"signature\": null\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://a2a-dev/A2A.eWalletAPI/api/base/A2AProcess",
+					"protocol": "http",
+					"host": [
+						"a2a-dev"
+					],
+					"path": [
+						"A2A.eWalletAPI",
+						"api",
+						"base",
+						"A2AProcess"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
